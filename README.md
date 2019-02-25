@@ -14,9 +14,11 @@ Caution: This is very beta software!
 
 basic LAS (Log Ascii Standard) well-log parser in c++
 
-`parseLas` currently reads in a basic las formatted file.  It parses the
-account type, each of the records and displays both the account type and
-records
+`parseLas` partially reads a las formatted file. 
+
+The parser currently parses and displays the Version and Well-Information
+sections. Additional sections to be added in future iterations.
+
 
 OPTIONS
 -------
@@ -37,9 +39,7 @@ make
 BUGS
 ----
 
-- Functionality is very basic. The parser currently parses and displays the
-  Version and Well-Information sections. Additional sections to be added in
-  future iterations.
+- Functionality is very basic. 
 
 
 AUTHOR
