@@ -12,9 +12,9 @@ DESCRIPTION
 -----------
 Caution: This is very beta software!
 
-basic LAS (Log Ascii Standard) parser in c++
+basic LAS (Log Ascii Standard) well-log parser in c++
 
-'parselas` currently reads in a basic qif formatted file.  It parses the
+`parseLas` currently reads in a basic las formatted file.  It parses the
 account type, each of the records and displays both the account type and
 records
 
