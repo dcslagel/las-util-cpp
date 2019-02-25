@@ -24,13 +24,13 @@
 #ifndef LAS_VERSION_H
 #define LAS_VERSION_H
 
-#include "las.h"
 
 class LasVersion
 {
     public:
         LasVersion();
         ~LasVersion();
+        void printInfo();
         void setHeader(const std::string line);
         void setVersion(const std::string line);
         void setLineWrap(const std::string line);

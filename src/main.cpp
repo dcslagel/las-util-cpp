@@ -1,5 +1,5 @@
 /*
-   parselas - parse las formated files and display the fields
+   parselas - parse las formatted files and display the fields
 
    This file is part of the Parsers::Parse-Las-Cpp project
 
@@ -20,17 +20,10 @@
    License-Identifier: Apache-2.0
 */
 
+
+// ParseLas includes
 #include "las.h"
 
-void remove_carriage_return(std::string& line);
-
-
-void remove_carriage_return(std::string& line)
-{
-    if(!line.empty() && *line.rbegin() == '\r') {
-        line.erase(line.length() - 1);
-    }
-}
 
 int main(int argc, char *argv[])
 {
@@ -40,16 +33,9 @@ int main(int argc, char *argv[])
 
     LasVersion LVer;
     char *file_to_parse = get_filename_arg();
-    std::cout << "INFO: filename: [" << file_to_parse << "]\n";
 
 
     std::ifstream DataSrc(file_to_parse);
-    if (DataSrc.is_open()) {
-        std::cout
-            << "INFO: "
-            << file_to_parse
-            << " is open, next action: parse the file\n";
-    }
     if (DataSrc.fail()) {
         std::cout << "WARNING: Cannot open " << file_to_parse << std::endl;
         exit(EXIT_FAILURE);
@@ -57,29 +43,43 @@ int main(int argc, char *argv[])
 
     std::string line;
 
-
+    /* ----------------------------------------------------
+     * Get Version Section
+     * ----------------------------------------------------*/
     std::getline(DataSrc, line);
-	remove_carriage_return(line);
+	trim(line);
     LVer.setHeader(line);
 
     std::getline(DataSrc, line);
-	remove_carriage_return(line);
+	trim(line);
     LVer.setVersion(line);
 
     std::getline(DataSrc, line);
-    remove_carriage_return(line);
+    trim(line);
     LVer.setLineWrap(line);
 
     std::getline(DataSrc, line);
-    remove_carriage_return(line);
+    trim(line);
     LVer.setDelimiter(line);
 
-    std::string token;
+    LVer.printInfo();
 
-    std::cout << "Section Header: [" << LVer.getHeader() << "]\n";
-    std::cout << "Version-string: [" << LVer.getVersion() << "]\n";
-    std::cout << "Is LineWrap on: [" << LVer.getLineWrap() << "]\n";
-    std::cout << "Field Delimiter: [" << LVer.getDelimiter() << "]\n";
+
+    /* ----------------------------------------------------
+     * Get Well Section
+     * ----------------------------------------------------*/
+    LasWell LWell;
+
+    while (std::getline(DataSrc, line))
+    {
+        if (line[0] == '#') {
+            continue;
+        }
+
+        LWell.parseLine(line);
+    }
+
+    LWell.printInfo();
 
     DataSrc.close();
 

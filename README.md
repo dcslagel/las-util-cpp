@@ -37,13 +37,15 @@ make
 BUGS
 ----
 
-- Functionality is very basic.
+- Functionality is very basic. The parser currently parses and displays the
+  Version and Well-Information sections. Additional sections to be added in
+  future iterations.
 
 
 AUTHOR
 ------
 
-cages
+D'Cage
 
 COPYRIGHT
 ------

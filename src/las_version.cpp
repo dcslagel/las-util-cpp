@@ -20,8 +20,7 @@
    License-Identifier: Apache-2.0
 */
 
-
-#include "las_version.h"
+#include "las.h"
 
 LasVersion::LasVersion()
 {
@@ -97,4 +96,20 @@ std::string LasVersion::getLineWrap()
 std::string LasVersion::getDelimiter()
 {
     return field_delimiter;
+}
+
+void LasVersion::printInfo()
+{
+    std::cout << "\n"
+        << "# ------------------------------------------------------\n"
+        << "#  " << getHeader() << "\n"
+        << "# ------------------------------------------------------\n"
+        << std::left
+        << std::setw(17) << "Version-string"
+        << ": [" << getVersion() << "]\n"
+        << std::setw(17) << "Is LineWrap on"
+        << ": [" << getLineWrap() << "]\n"
+        << std::setw(17) << "Field Delimiter"
+        << ": [" << getDelimiter() << "]\n"
+        << "# ------------------------------------------------------\n\n";
 }

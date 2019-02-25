@@ -1,5 +1,5 @@
 /*
-   las.h - main header for parseLas
+   las_utils.h - misc tools for general processing
 
    This file is part of the Parsers::Parse-Las-Cpp project
 
@@ -20,20 +20,9 @@
    License-Identifier: Apache-2.0
 */
 
-#ifndef LAS_H
-#define LAS_H
+#ifndef LAS_UTILS_H
+#define LAS_UTILS_H
 
-// System
-#include <fstream>  // std::ifstream
-#include <iomanip>  // setw(), left
-#include <iostream> // std:cout
-#include <sstream>  // std::stringstream
-#include <vector>
+void trim(std::string& line);
 
-// ParseLas specific
-#include "las_args.h"
-#include "las_version.h"
-#include "las_utils.h"
-#include "las_well.h"
-
-#endif /* LAS_H */
+#endif /* LAS_UTILS_H */
