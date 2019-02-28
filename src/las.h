@@ -35,5 +35,6 @@
 #include "las_version.h"
 #include "las_utils.h"
 #include "las_well.h"
+#include "las_log_param.h"
 
 #endif /* LAS_H */

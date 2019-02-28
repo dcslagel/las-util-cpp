@@ -31,7 +31,6 @@ int main(int argc, char *argv[])
         exit(EXIT_FAILURE);
     }
 
-    LasVersion LVer;
     char *file_to_parse = get_filename_arg();
 
 
@@ -46,6 +45,8 @@ int main(int argc, char *argv[])
     /* ----------------------------------------------------
      * Get Version Section
      * ----------------------------------------------------*/
+    LasVersion LVer;
+
     std::getline(DataSrc, line);
 	trim(line);
     LVer.setHeader(line);
@@ -76,10 +77,45 @@ int main(int argc, char *argv[])
             continue;
         }
 
+        // If we have a section header and the well section header
+        // is already set (greater than zero) then we are at the next
+        // section so break out of the well section processing
+        // ----------------------------------------------------------
+        if (line[0] == '~') {
+            if (LWell.getHeader().size() > 0) {
+                break;
+            }
+        }
+
         LWell.parseLine(line);
     }
 
     LWell.printInfo();
+
+    /* ----------------------------------------------------
+     * Get Log_Parameter Section
+     * ----------------------------------------------------*/
+    LasLogParam LLogParam;
+
+    trim(line);
+    if ( line == "~Parameter" ||  line == "~Log_Parameter" ) {
+        LLogParam.parseLine(line);
+
+        while (std::getline(DataSrc, line))
+        {
+            if (line[0] == '#') {
+                continue;
+            }
+
+            if (line[0] == '~') {
+                break;
+            }
+
+            LLogParam.parseLine(line);
+        }
+
+        LLogParam.printInfo();
+    }
 
     DataSrc.close();
 
