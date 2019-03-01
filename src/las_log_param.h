@@ -35,6 +35,7 @@ class LasLogParam
         void parseLine(std::string line);
         void printInfo();
         void setHeader(const std::string line);
+        void printDataHeader();
 
         std::string getHeader();
     private:

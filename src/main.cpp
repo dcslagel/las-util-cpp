@@ -117,6 +117,110 @@ int main(int argc, char *argv[])
         LLogParam.printInfo();
     }
 
+    /* ----------------------------------------------------
+     * Get Log_Definition Section
+     * ----------------------------------------------------*/
+    LasLogParam LLogDef;
+
+    trim(line);
+    if ( line == "~Log_Definition" ) {
+        LLogDef.parseLine(line);
+
+        while (std::getline(DataSrc, line))
+        {
+            if (line[0] == '#') {
+                continue;
+            }
+
+            if (line[0] == '~') {
+                break;
+            }
+
+            LLogDef.parseLine(line);
+        }
+
+        LLogDef.printInfo();
+    }
+
+    /* ----------------------------------------------------
+     * Get Drilling_Definition Section
+     * ----------------------------------------------------*/
+    LasLogParam LDrillingDef;
+
+    trim(line);
+    if ( line == "~Drilling_Definition" ) {
+        LDrillingDef.parseLine(line);
+
+        while (std::getline(DataSrc, line))
+        {
+            if (line[0] == '#') {
+                continue;
+            }
+
+            if (line[0] == '~') {
+                break;
+            }
+
+            LDrillingDef.parseLine(line);
+        }
+
+        LDrillingDef.printInfo();
+    }
+
+    /* ----------------------------------------------------
+     * Get Drilling_Data Section
+     *
+     * ~Drilling_Data | Drilling_Definition
+     * 322.02,1.02,0.0,24.0,3,59,111,1199,179, 879,8.73,39
+     * 323.05,2.05,0.1,37.5,2,69,118,1182,175, 861,8.73,202
+     *
+     * ----------------------------------------------------*/
+    trim(line);
+    if ( line == "~Drilling_Data | Drilling_Definition" ) {
+        std::cout
+            << "\n"
+            << "# -------------------------------------------------"
+            << "---------------------------------------------\n"
+            << "#  " << "~Drilling_Data" << "\n"
+            << "# -------------------------------------------------"
+            << "---------------------------------------------\n";
+
+        LDrillingDef.printDataHeader();
+
+        std::string field;
+        while (std::getline(DataSrc, line))
+        {
+            trim(line);
+            if (line[0] == '#' || line.size() == 0) {
+                continue;
+            }
+
+            if (line[0] == '~') {
+                break;
+            }
+
+            std::stringstream ss(line);
+            std::getline(ss, field, ',');
+            trim(field);
+            std::cout 
+                // << std::left
+                << std::setw(6)
+                << field
+                << " |";
+
+            while (std::getline(ss, field, ',')) {
+                trim(field);
+                std::cout 
+                    << std::right
+                    << std::setw(6)
+                    << field
+                    << " |";
+            }
+            std::cout << "\n";
+        }
+    }
+
+    
     DataSrc.close();
 
     return 0;

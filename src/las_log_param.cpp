@@ -105,19 +105,25 @@ std::string LasLogParam::getHeader()
 
 void LasLogParam::printInfo()
 {
+    const int width_name = 14;
+    const int width_unit = 7;
+    const int width_value = 11;
+    const int width_desc = 40;
     std::cout
-        << "# ------------------------------------------------------\n"
+        << "# -------------------------------------------------"
+        << "---------------------------------------------\n"
         << "#  " << getHeader() << "\n"
-        << "# ------------------------------------------------------\n";
+        << "# -------------------------------------------------"
+        << "---------------------------------------------\n";
     std::cout
         << std::left
-        << std::setw(14) << "Name"
+        << std::setw(width_name) << "Name"
         << " :: "
-        << std::setw(7) << "Unit"
+        << std::setw(width_unit) << "Unit"
         << " :: "
-        << std::setw(10) << "Value"
+        << std::setw(width_value) << "Value"
         << " :: "
-        << std::setw(35) << "Desc"
+        << std::setw(width_desc) << "Desc"
         << " :: "
         << "Assocs"
         << "\n"
@@ -130,15 +136,38 @@ void LasLogParam::printInfo()
         std::string rec_name = name_vec[idx];
         std::cout
             << std::left
-            << std::setw(14) << name_vec[idx]
+            << std::setw(width_name) << name_vec[idx]
             << " :: "
-            << std::setw(7) << unit_vec[idx]
+            << std::setw(width_unit) << unit_vec[idx]
             << " :: "
-            << std::setw(10) << value_vec[idx]
+            << std::setw(width_value) << value_vec[idx]
             << " :: "
-            << std::setw(35) << desc_vec[idx]
+            << std::setw(width_desc) << desc_vec[idx]
             << " :: "
             << assocs_vec[idx]
             << "\n";
     }
+}
+
+void LasLogParam::printDataHeader()
+{
+    const int width_name = 6;
+    size_t record_count = name_vec.size();
+    
+    for(size_t idx = 0; idx < record_count; idx++) {
+        std::string rec_name = name_vec[idx];
+        std::cout
+            << std::left
+            << std::setw(width_name) << name_vec[idx];
+        if (idx == 0) {
+            std::cout << " | ";
+        } else if (idx < record_count - 1) {
+            std::cout << "| ";
+        }
+    }
+    std::cout
+        << "\n"
+        << "# -------------------------------------------------"
+        << "---------------------------------------------\n";
+
 }

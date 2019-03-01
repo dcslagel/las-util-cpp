@@ -113,3 +113,44 @@
  ENG  .                : Recording Engineer               | RUN[2]       
  WIT  .                : Witnessed By                     | RUN[2]       
  
+~Log_Definition
+#MNEM.UNIT             LOG CODES                   CURVE DESCRIPTION
+#----------------     -----------              -------------------------
+# Format of value in data section F=float, E=0.00E00 S=string
+ DEPT .M                                       : DEPTH               {F} 
+ DT   .US/M           123 456 789              : SONIC TRANSIT TIME  {F} 
+ RHOB .K/M3           123 456 789              : BULK DENSITY        {F}
+ NPHI .V/V            123 456 789              : NEUTRON POROSITY    {F}       
+ SFLU .OHMM           123 456 789              : SHALLOW RESISTIVITY {F}
+ SFLA .OHMM           123 456 789              : SHALLOW RESISTIVITY {F}
+ ILM  .OHMM           123 456 789              : MEDIUM RESISTIVITY  {F}
+ ILD  .OHMM           123 456 789              : DEEP RESISTIVITY    {F}
+ YME  .PA             123 456 789              : YOUNGS MODULES      {E0.00E+00}
+ CDES .               123 456 789              : CORE DESCRIPTION    {S} 
+# A 2D array channel begins here. It has 5 elements.
+# value after A: is time spacing of this array element from first element.
+ NMR[1] .ms           123 456 789              : NMR Echo Array      {AF;0ms} 
+ NMR[2] .ms           123 456 789              : NMR Echo Array      {AF;5ms}          
+ NMR[3] .ms           123 456 789              : NMR Echo Array      {AF;10ms}          
+ NMR[4] .ms           123 456 789              : NMR Echo Array      {AF;15ms}          
+ NMR[5] .ms           123 456 789              : NMR Echo Array      {AF;20ms}          
+
+
+~Drilling_Definition 
+DEPT .ft              : depth                                {F}                                
+DIST .ft              : cummulative increment of drilling.   {F}                                
+HRS  .hour            : Hours of drilling                    {F}                                
+ROP  .ft/hr           : Rate of Penetration                  {F}                                
+WOB  .klb             : weight on bit                        {F}                                
+RPM  .RPM             : rotations per minute                 {F}                                
+TQ   .AMPS            : torque on bit in amps                {F}                                
+PUMP .psi             : Mud pump pressure                    {F}                                
+TSPM .SPM             : total strokes per minute             {F}                                
+GPM  .gal/min         : gallons per minute                   {F}                                
+ECD  .ppg             : effective circulation density        {F}                                
+TBR  .                : total barrels returned               {F}                                
+
+~Drilling_Data | Drilling_Definition
+322.02,1.02,0.0,24.0,3,59,111,1199,179, 879,8.73,39
+323.05,2.05,0.1,37.5,2,69,118,1182,175, 861,8.73,202
+

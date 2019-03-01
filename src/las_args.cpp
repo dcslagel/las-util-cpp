@@ -33,6 +33,11 @@ int arg_parse(int argc, char *argv[])
     int ch;
     const char *optstring = "f:";
 
+    if (argc < 2) {
+        std::cerr << "Usage: " << argv[0] << " -f <las_filename>\n";
+        return(1);
+    }
+
     while ((ch = getopt(argc, argv, optstring)) !=  -1)
     {
         switch (ch)
