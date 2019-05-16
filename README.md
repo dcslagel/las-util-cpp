@@ -43,7 +43,6 @@ make
 BUGS
 ----
 
-- Seg fault if '-f' used.
 - Functionality is very basic. 
 
 
