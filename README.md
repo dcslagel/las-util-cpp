@@ -1,7 +1,7 @@
 # parser-las-cpp
 NAME
 ----
-parselas - LAS parser in C
+parselas - LAS parser in C++
 
 SYNOPSIS
 --------
@@ -21,7 +21,9 @@ The parser currently parses and displays the following sections:
 - Well-Information
 - Log-Parameter
 
-Additional sections to be added in future iterations.
+Todo:
+- Add flags to report on selected sections
+- Additional sections to be added in future iterations.
 
 
 OPTIONS
@@ -49,10 +51,10 @@ BUGS
 AUTHOR
 ------
 
-dCage
+DC Slagel
 
 COPYRIGHT
 ------
 
-Copyright (c) 2019 cages
+Copyright (c) 2019 DC Slagel
 

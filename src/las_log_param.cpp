@@ -3,7 +3,7 @@
 
    This file is part of the Parsers::Parse-Las-Cpp project
 
-   Copyright (C) 2019 cages
+   Copyright (C) 2019 DC Slagel
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
