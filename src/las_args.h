@@ -27,6 +27,8 @@ int arg_parse(int argc, char *argv[]);
 
 char *get_filename_arg(void);
 
+bool is_section_printable(char);
+
 void release_arg_memory(void);
 
 #endif /* LAS_ARGS_H */

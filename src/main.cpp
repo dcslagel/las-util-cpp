@@ -63,7 +63,9 @@ int main(int argc, char *argv[])
     trim(line);
     LVer.setDelimiter(line);
 
-    LVer.printInfo();
+    if (is_section_printable('v')) {
+      LVer.printInfo();
+    }
 
 
     /* ----------------------------------------------------
@@ -90,7 +92,9 @@ int main(int argc, char *argv[])
         LWell.parseLine(line);
     }
 
-    LWell.printInfo();
+    if (is_section_printable('w')) {
+      LWell.printInfo();
+    }
 
     /* ----------------------------------------------------
      * Get Log_Parameter Section
@@ -114,7 +118,9 @@ int main(int argc, char *argv[])
             LLogParam.parseLine(line);
         }
 
-        LLogParam.printInfo();
+      if (is_section_printable('p')) {
+          LLogParam.printInfo();
+      }
     }
 
     /* ----------------------------------------------------
@@ -139,7 +145,9 @@ int main(int argc, char *argv[])
             LLogDef.parseLine(line);
         }
 
-        LLogDef.printInfo();
+        if (is_section_printable('d')) {
+          LLogDef.printInfo();
+        }
     }
 
     /* ----------------------------------------------------
@@ -164,7 +172,9 @@ int main(int argc, char *argv[])
             LDrillingDef.parseLine(line);
         }
 
-        LDrillingDef.printInfo();
+        if (is_section_printable('e')) {
+          LDrillingDef.printInfo();
+        }
     }
 
     /* ----------------------------------------------------
@@ -177,15 +187,17 @@ int main(int argc, char *argv[])
      * ----------------------------------------------------*/
     trim(line);
     if ( line == "~Drilling_Data | Drilling_Definition" ) {
-        std::cout
-            << "\n"
-            << "# -------------------------------------------------"
-            << "---------------------------------------------\n"
-            << "#  " << "~Drilling_Data" << "\n"
-            << "# -------------------------------------------------"
-            << "---------------------------------------------\n";
+        if (is_section_printable('a')) {
+          std::cout
+              << "\n"
+              << "# -------------------------------------------------"
+              << "---------------------------------------------\n"
+              << "#  " << "~Drilling_Data" << "\n"
+              << "# -------------------------------------------------"
+              << "---------------------------------------------\n";
 
-        LDrillingDef.printDataHeader();
+          LDrillingDef.printDataHeader();
+        }
 
         std::string field;
         while (std::getline(DataSrc, line))
@@ -202,25 +214,28 @@ int main(int argc, char *argv[])
             std::stringstream ss(line);
             std::getline(ss, field, ',');
             trim(field);
-            std::cout 
-                // << std::left
-                << std::setw(6)
-                << field
-                << " |";
 
-            while (std::getline(ss, field, ',')) {
-                trim(field);
-                std::cout 
-                    << std::right
-                    << std::setw(6)
-                    << field
-                    << " |";
+            if (is_section_printable('a')) {
+              std::cout 
+                  // << std::left
+                  << std::setw(6)
+                  << field
+                  << " |";
+
+              while (std::getline(ss, field, ',')) {
+                  trim(field);
+                  std::cout 
+                      << std::right
+                      << std::setw(6)
+                      << field
+                      << " |";
+              }
+              std::cout << "\n";
             }
-            std::cout << "\n";
         }
     }
 
-    
+
     DataSrc.close();
 
     return 0;

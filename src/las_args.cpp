@@ -26,15 +26,31 @@
 
 
 static char *filename_to_parse = nullptr;
+static char *sections_to_print = nullptr;
+static const char *helptext = 
+"Usage: parseLas -f <las_filename> [-p <sections_to_print>]\n"
+" \n"
+"- Sections to print:\n"
+"  Specify which sections to display by listing the letters following '-p'\n"
+"  Example:\n"
+"  parseLas -f myfile -p vw\n"
+"    Letter  : Section\n"
+"    v       : Version Information Section\n"
+"    w       : Well Information Section\n"
+"    p       : Log Parameter Section\n"
+"    d       : Log Definition Section\n"
+"    e       : Drilling Definition Section\n"
+"    a       : Drilling Data Section\n";
+
 
 
 int arg_parse(int argc, char *argv[])
 {
     int ch;
-    const char *optstring = "f:";
+    const char *optstring = "hf:p:";
 
     if (argc < 2) {
-        std::cerr << "Usage: " << argv[0] << " -f <las_filename>\n";
+        std::cerr << "Usage: " << argv[0] << " -f <las_filename> [-p <sections_to_print>]\n";
         return(1);
     }
 
@@ -50,10 +66,27 @@ int arg_parse(int argc, char *argv[])
                 }
                 strncpy(filename_to_parse, optarg, strlen(optarg));
                 break;
+            case 'h':
+                std::cout << helptext;
+                exit(0);
+            case 'p':
+                sections_to_print = new char[strlen(optarg + 1)];
+                if (sections_to_print == nullptr) {
+                    perror("new");
+                    return 1;
+                }
+                strncpy(sections_to_print, optarg, strlen(optarg));
+                break;
             default:
-                std::cerr << "Usage: " << argv[0] << " -f <las_filename>\n";
+                std::cerr << helptext;
                 return(1);
         }
+    }
+
+    // if -f <filename> wasn't used, then display help and exit
+    if (filename_to_parse == nullptr) {
+      std::cout << helptext;
+      exit(0);
     }
 
     return 0;
@@ -65,7 +98,32 @@ char *get_filename_arg(void)
     return filename_to_parse;
 }
 
+
+bool is_section_printable(char section)
+{
+  bool result = false;
+
+  // if sections_to_print is not set then print all sections
+  if (sections_to_print == nullptr) {
+    result = true;
+    return result;
+  }
+
+  size_t mylen = strlen(sections_to_print);
+
+  for(size_t idx = 0; idx < mylen; idx++) { 
+    if (sections_to_print[idx] == section) {
+      result = true;
+      return result;
+    }
+  }
+  return result;
+}
+
+
 void release_arg_memory(void)
 {
     delete [] filename_to_parse;
+    delete [] sections_to_print;
+    delete [] helptext;
 }
