@@ -67,6 +67,12 @@ OPTIONS
 `-f`
   LAS file to parse
 
+`-p`
+  options for displaying section information
+
+`-h`
+  display help
+
 COMPILE AND RUN
 ---------------
 
