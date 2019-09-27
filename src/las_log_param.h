@@ -1,7 +1,7 @@
 /*
-   las_log_param.h - log_param class definition for parseLas
+   las_log_param.h - log_param class definition for lasUtil
 
-   This file is part of the Parsers::Parse-Las-Cpp project
+   This file is part of the Las-Util-Cpp project
 
    Copyright (C) 2019 DC Slagel
 

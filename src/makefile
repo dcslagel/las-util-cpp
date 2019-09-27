@@ -15,7 +15,7 @@ RM     = /bin/rm -f
 
 SRCS   = *.cpp
 OBJS   = $(subst .cpp,.o,($SRCS)
-TARGET = parseLas
+TARGET = lasUtil
 
 
 all: $(SRCS)

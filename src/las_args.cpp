@@ -1,7 +1,7 @@
 /*
-   las_args.cpp - argument parsing functions for parseLas
+   las_args.cpp - argument parsing functions for lasUtil
 
-   This file is part of the Parsers::Parse-Las-Cpp project
+   This file is part of the Las-Util-Cpp project
 
    Copyright (C) 2019 DC Slagel
 
@@ -28,12 +28,12 @@
 static char *filename_to_parse = nullptr;
 static char *sections_to_print = nullptr;
 static const char *helptext = 
-"Usage: parseLas -f <las_filename> [-p <sections_to_print>]\n"
+"Usage: lasUtil -f <las_filename> [-p <sections_to_print>]\n"
 " \n"
 "- Sections to print:\n"
 "  Specify which sections to display by listing the letters following '-p'\n"
 "  Example:\n"
-"  parseLas -f myfile -p vw\n"
+"  lasUtil -f myfile -p vw\n"
 "    Letter  : Section\n"
 "    v       : Version Information Section\n"
 "    w       : Well Information Section\n"

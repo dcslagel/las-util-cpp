@@ -1,7 +1,7 @@
 /*
    las_utils.cpp - misc tools for general processing
 
-   This file is part of the Parsers::Parse-Las-Cpp project
+   This file is part of the Las-Util-Cpp project
 
    Copyright (C) 2019 DC Slagel
 

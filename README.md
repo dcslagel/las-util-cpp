@@ -1,12 +1,12 @@
-# parser-las-cpp
+# las-util-cpp
 NAME
 ----
-parselas - LAS parser in C++
+LAS-Util - LAS parser  in C++
 
 SYNOPSIS
 --------
 
-Usage: parseLas -f <las_filename> [-p <sections_to_print>]    
+Usage: lasUtil -f <las_filename> [-p <sections_to_print>]    
      
 Sections to print:    
 Specify which sections to display by listing the letters following '-p'    
@@ -25,16 +25,16 @@ EXAMPLES
 --------
 
 * Display help   
-`parseLas -h`
+`lasUtil -h`
 
 * Display all sections of a given LAS file    
-`parseLas -f example.las`
+`lasUtil -f example.las`
 
 * Display only the well information section of a given LAS file    
-`parseLas -f example.las -p w`
+`lasUtil -f example.las -p w`
 
 * Display the version and well information sections of a given LAS file    
-`parseLas -f example.las -p vw`
+`lasUtil -f example.las -p vw`
 
 DESCRIPTION
 -----------
@@ -47,7 +47,7 @@ the Canadian Well Logging Society at
 http://www.cwls.org/las/
 
 
-`parseLas` partially reads a las formatted file. 
+`lasUtil` partially reads a las formatted file. 
 
 The parser currently parses and displays the following sections:
 - Version
@@ -77,10 +77,10 @@ COMPILE AND RUN
 ---------------
 
 ```bash
-cd parse-las-cpp/src  
+cd las-util-cpp/src  
 make clean
 make  
-./parseLas -f example.las  
+./lasUtil -f example.las  
 ```
 
 BUGS

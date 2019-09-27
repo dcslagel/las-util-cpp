@@ -1,7 +1,7 @@
 /*
-   las.h - main header for parseLas
+   las.h - main header for lasUtil
 
-   This file is part of the Parsers::Parse-Las-Cpp project
+   This file is part of the Las-Util-Cpp project
 
    Copyright (C) 2019 DC Slagel
 
@@ -30,7 +30,7 @@
 #include <sstream>  // std::stringstream
 #include <vector>
 
-// ParseLas specific
+// Las_Util specific
 #include "las_args.h"
 #include "las_version.h"
 #include "las_utils.h"

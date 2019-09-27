@@ -1,7 +1,7 @@
 /*
    las_log_param.cpp - LasLogParam class methods for ~Log_Parameters
 
-   This file is part of the Parsers::Parse-Las-Cpp project
+   This file is part of the Las-Util-Cpp project
 
    Copyright (C) 2019 DC Slagel
 
