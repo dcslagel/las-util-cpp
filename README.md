@@ -3,6 +3,28 @@ NAME
 ----
 LAS-Util - LAS parser  in C++
 
+DESCRIPTION
+-----------
+Caution: This is beta software!
+
+basic LAS (Log Ascii Standard) well-log parser in c++
+
+LAS file format versions are written and maintained by   
+the Canadian Well Logging Society at    
+http://www.cwls.org/las/
+
+
+`lasUtil` partially reads a las formatted file. 
+
+The parser currently parses and displays the following sections:
+- Version
+- Well-Information
+- Log-Parameter
+
+Todo:
+- Additional sections to be added in future iterations.
+
+
 SYNOPSIS
 --------
 
@@ -35,30 +57,6 @@ EXAMPLES
 
 * Display the version and well information sections of a given LAS file    
 `lasUtil -f example.las -p vw`
-
-DESCRIPTION
------------
-Caution: This is beta software!
-
-basic LAS (Log Ascii Standard) well-log parser in c++
-
-LAS file format versions are written and maintained by   
-the Canadian Well Logging Society at    
-http://www.cwls.org/las/
-
-
-`lasUtil` partially reads a las formatted file. 
-
-The parser currently parses and displays the following sections:
-- Version
-- Well-Information
-- Log-Parameter
-
-Todo:
-- Additional sections to be added in future iterations.
-- Re-organize code to remove functional duplication.
-- Save to a database.
-- Add JSON output.
 
 
 OPTIONS
