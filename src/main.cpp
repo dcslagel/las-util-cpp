@@ -36,8 +36,12 @@ int main(int argc, char *argv[])
 
     std::ifstream DataSrc(file_to_parse);
     if (DataSrc.fail()) {
-        std::cout << "WARNING: Cannot open " << file_to_parse << std::endl;
-        exit(EXIT_FAILURE);
+        std::cout << "ERROR: Cannot open ["
+          << file_to_parse
+          << "]   "
+          << strerror(errno)
+          <<  std::endl;
+        exit(errno);
     }
 
     std::string line;

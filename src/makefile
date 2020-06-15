@@ -1,4 +1,3 @@
-C      = /Library/Developer/CommandLineTools/usr/bin/clang
 CPP    = /Library/Developer/CommandLineTools/usr/bin/clang++
 CFLAGS = -std=c++14 -Wall -Wextra -Weverything -Wno-c++98-compat
 
@@ -20,12 +19,6 @@ TARGET = lasUtil
 
 all: $(SRCS)
 	$(CPP) $(CFLAGS) $(SRCS) -o $(TARGET)
-
-debug: *.c
-	$(CPP) $(CFLAGS) $(DEBUG) $(SRCS) -o $(TARGET)
-
-verbose: *.c
-	$(CPP) $(CFLAGS) $(VERB) $(SRCS) -o $(TARGET)
 
 .PHONEY: clean
 clean:
