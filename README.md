@@ -91,7 +91,7 @@ BUGS
 
 - Functionality is very basic. 
 - Report bugs by creating an issue at:
-  - https://github.com/dcslagel/las-header-parser-c/issues
+  - https://github.com/dcslagel/las-util-cpp/issues
 
 
 COPYRIGHT
