@@ -54,23 +54,24 @@ git clone https://github.com/dcslagel/las-util-cpp
 cd las-util-cpp/src  
 make clean
 make  
-./lasUtil -f ../examples/sample_2.0.las  
+cd ..
+./src/lasUtil -f examples/sample_2.0.las
 ```
 
 EXAMPLES
 --------
 
 * Display help   
-`lasUtil -h`
+`./src/lasUtil -h`
 
 * Display all sections of a given LAS file    
-`lasUtil -f ../examples/sample_2.0.las`
+`./src/lasUtil -f examples/sample_2.0.las`
 
 * Display only the well information section of a given LAS file    
-`lasUtil -p w -f ../examples/sample_2.0.las`
+`./src/lasUtil -p w -f examples/sample_2.0.las`
 
 * Display the version and well information sections of a given LAS file    
-`lasUtil -p vw -f ../examples/sample_2.0.las`
+`./src/lasUtil -p vw -f examples/sample_2.0.las`
 
 
 OPTIONS
