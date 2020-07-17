@@ -24,6 +24,7 @@
 #define LAS_H
 
 // System
+#include <cstring>  // strlen, strcpy, perror
 #include <fstream>  // std::ifstream
 #include <iomanip>  // setw(), left
 #include <iostream> // std:cout

@@ -59,12 +59,11 @@ int arg_parse(int argc, char *argv[])
         switch (ch)
         {
             case 'f':
-                filename_to_parse = new char[strlen(optarg + 1)];
+                filename_to_parse = strdup(optarg);
                 if (filename_to_parse == nullptr) {
-                    perror("new");
+                    perror("strdup");
                     return 1;
                 }
-                strncpy(filename_to_parse, optarg, strlen(optarg));
                 break;
             case 'h':
                 std::cout << helptext;
