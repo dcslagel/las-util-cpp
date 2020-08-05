@@ -2,7 +2,7 @@
 
 ## 0.0.1 - 2020-06-15
 
-This release formalizes the existing code.
+Beta : Initial release package of existing functionality
 
 ### Added
 
