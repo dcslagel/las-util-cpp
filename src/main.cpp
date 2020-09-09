@@ -49,6 +49,7 @@ int main(int argc, char *argv[])
     /* ----------------------------------------------------
      * Get Version Section
      * ----------------------------------------------------*/
+
     LasVersion LVer;
 
     std::getline(DataSrc, line);
@@ -65,17 +66,24 @@ int main(int argc, char *argv[])
 
     std::getline(DataSrc, line);
     trim(line);
-    LVer.setDelimiter(line);
 
-    if (is_section_printable('v')) {
-      LVer.printInfo();
+    // if the first character is '~' then the Version section is completed and
+    // we are starting a new section.
+    if (line[0] == '~') {
+      if (is_section_printable('v')) {
+        LVer.printInfo();
+      }
     }
-
+    else {
+      LVer.setDelimiter(line);
+    }
 
     /* ----------------------------------------------------
      * Get Well Section
      * ----------------------------------------------------*/
     LasWell LWell;
+
+    LWell.setHeader(line);
 
     while (std::getline(DataSrc, line))
     {
