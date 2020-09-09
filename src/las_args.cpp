@@ -31,15 +31,16 @@ static const char *helptext =
 "Usage: lasUtil -f <las_filename> [-p <sections_to_print>]\n"
 " \n"
 "- Sections to print:\n"
+"  By default all sections are displayed\n"
 "  Specify which sections to display by listing the letters following '-p'\n"
 "  Example:\n"
 "  lasUtil -f myfile -p vw\n"
 "    Letter  : Section\n"
 "    v       : Version Information Section\n"
 "    w       : Well Information Section\n"
-"    p       : Log Parameter Section\n"
-"    d       : Log Definition Section\n"
-"    e       : Drilling Definition Section\n"
+"    c       : Curve Section\n"
+"    p       : Parameter Section\n"
+"    o       : Other Section\n"
 "    a       : Drilling Data Section\n";
 
 

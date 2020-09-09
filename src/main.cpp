@@ -109,7 +109,14 @@ int main(int argc, char *argv[])
     }
 
     /* ----------------------------------------------------
-     * Get Log_Parameter Section
+     * Get Curve Section
+     * ----------------------------------------------------*/
+    if (is_section_printable('c')) {
+        std::cout << "Parsing 'Curve' Section isn't available yet\n";
+    }
+
+    /* ----------------------------------------------------
+     * Get Parameter : Log_Parameter Section
      * ----------------------------------------------------*/
     LasLogParam LLogParam;
 
@@ -138,6 +145,7 @@ int main(int argc, char *argv[])
     /* ----------------------------------------------------
      * Get Log_Definition Section
      * ----------------------------------------------------*/
+    /*
     LasLogParam LLogDef;
 
     trim(line);
@@ -160,6 +168,14 @@ int main(int argc, char *argv[])
         if (is_section_printable('d')) {
           LLogDef.printInfo();
         }
+    }
+    */
+
+    /* ----------------------------------------------------
+     * Get Other Section
+     * ----------------------------------------------------*/
+    if (is_section_printable('o')) {
+        std::cout << "Parsing 'Other' Section isn't available yet\n";
     }
 
     /* ----------------------------------------------------
