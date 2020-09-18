@@ -111,8 +111,27 @@ int main(int argc, char *argv[])
     /* ----------------------------------------------------
      * Get Curve Section
      * ----------------------------------------------------*/
-    if (is_section_printable('c')) {
-        std::cout << "Parsing 'Curve' Section isn't available yet\n";
+    LasHeader LHeader;
+
+    trim(line);
+    if ( line[0] == '~' &&  (line[1] == 'C' || line[1] == 'c') ) {
+        LHeader.parseLine(line);
+
+        while (std::getline(DataSrc, line))
+        {
+            if (line[0] == '#') {
+                continue;
+            }
+
+            if (line[0] == '~') {
+                break;
+            }
+
+            LHeader.parseLine(line);
+        }
+        if (is_section_printable('c')) {
+            LHeader.printInfo();
+        }
     }
 
     /* ----------------------------------------------------

@@ -26,6 +26,7 @@ basic LAS (Log Ascii Standard) well-log parser in c++
 The parser currently parses and displays the following sections:
 - Version
 - Well-Information
+- Curve
 
 Currently tested on darwin-amd64.
 
@@ -50,8 +51,8 @@ Specify which sections to display by listing the letters following '-p'
 |--------|----------|
 |v       | Version Information Section  |
 |w       | Well Information Section  |
+|c       | Curve Section
 |p       | Log Parameter Section  |
-|d       | Log Definition Section  |
 |e       | Drilling Definition Section  |
 |a       | Drilling Data Section  |
 
@@ -114,7 +115,7 @@ https://github.com/dcslagel/las-util-cpp/milestones
 [FEATURE-REQUEST](#name)
 ----------------
 
-To request and discuss a potiential feature create an issue at:
+To request and discuss a potential feature create an issue at:
   - https://github.com/dcslagel/las-util-cpp/issues
 
 
