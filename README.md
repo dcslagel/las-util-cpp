@@ -27,6 +27,7 @@ The parser currently parses and displays the following sections:
 - Version
 - Well-Information
 - Curve
+- Parameter
 
 Currently tested on darwin-amd64.
 

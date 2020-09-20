@@ -111,11 +111,11 @@ int main(int argc, char *argv[])
     /* ----------------------------------------------------
      * Get Curve Section
      * ----------------------------------------------------*/
-    LasHeader LHeader;
+    LasHeader CurveHeader;
 
     trim(line);
     if ( line[0] == '~' &&  (line[1] == 'C' || line[1] == 'c') ) {
-        LHeader.parseLine(line);
+        CurveHeader.parseLine(line);
 
         while (std::getline(DataSrc, line))
         {
@@ -127,21 +127,24 @@ int main(int argc, char *argv[])
                 break;
             }
 
-            LHeader.parseLine(line);
+            CurveHeader.parseLine(line);
         }
         if (is_section_printable('c')) {
-            LHeader.printInfo();
+            CurveHeader.printInfo();
         }
     }
 
     /* ----------------------------------------------------
      * Get Parameter : Log_Parameter Section
      * ----------------------------------------------------*/
-    LasLogParam LLogParam;
+    // LasLogParam LLogParam;
+    LasHeader ParamHeader;
 
     trim(line);
-    if ( line == "~Parameter" ||  line == "~Log_Parameter" ) {
-        LLogParam.parseLine(line);
+    std::string paramsectionindicator ("~P");
+
+    if ( line.find(paramsectionindicator) == 0 ) {
+        ParamHeader.parseLine(line);
 
         while (std::getline(DataSrc, line))
         {
@@ -153,11 +156,11 @@ int main(int argc, char *argv[])
                 break;
             }
 
-            LLogParam.parseLine(line);
+            ParamHeader.parseLine(line);
         }
 
       if (is_section_printable('p')) {
-          LLogParam.printInfo();
+          ParamHeader.printInfo();
       }
     }
 
