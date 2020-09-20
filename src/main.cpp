@@ -143,7 +143,7 @@ int main(int argc, char *argv[])
     trim(line);
     std::string paramsectionindicator ("~P");
 
-    if ( line.find(paramsectionindicator) == 0 ) {
+    if ( line.rfind(paramsectionindicator, 0) == 0 ) {
         ParamHeader.parseLine(line);
 
         while (std::getline(DataSrc, line))
