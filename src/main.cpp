@@ -196,13 +196,36 @@ int main(int argc, char *argv[])
     /* ----------------------------------------------------
      * Get Other Section
      * ----------------------------------------------------*/
-    if (is_section_printable('o')) {
-        std::cout << "Parsing 'Other' Section isn't available yet\n";
+    LasOther OtherHeader;
+
+    trim(line);
+    std::string othersectionindicator ("~O");
+
+    if ( line.rfind(othersectionindicator, 0) == 0 ) {
+        OtherHeader.parseLine(line);
+
+        while (std::getline(DataSrc, line))
+        {
+            if (line[0] == '#') {
+                continue;
+            }
+
+            if (line[0] == '~') {
+                break;
+            }
+
+            OtherHeader.parseLine(line);
+        }
+
+      if (is_section_printable('o')) {
+          OtherHeader.printInfo();
+      }
     }
 
     /* ----------------------------------------------------
      * Get Drilling_Definition Section
      * ----------------------------------------------------*/
+    /*
     LasLogParam LDrillingDef;
 
     trim(line);
@@ -226,6 +249,7 @@ int main(int argc, char *argv[])
           LDrillingDef.printInfo();
         }
     }
+    */
 
     /* ----------------------------------------------------
      * Get Drilling_Data Section
@@ -235,6 +259,7 @@ int main(int argc, char *argv[])
      * 323.05,2.05,0.1,37.5,2,69,118,1182,175, 861,8.73,202
      *
      * ----------------------------------------------------*/
+    /*
     trim(line);
     if ( line == "~Drilling_Data | Drilling_Definition" ) {
         if (is_section_printable('a')) {
@@ -284,6 +309,7 @@ int main(int argc, char *argv[])
             }
         }
     }
+    */
 
 
     DataSrc.close();

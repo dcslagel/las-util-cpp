@@ -1,11 +1,11 @@
 /*
-   las.h - main header for lasUtil
+   las_other.h - 'other' header class definition for lasUtil
 
    This file is part of the Las-Util-Cpp project
 
    Copyright (C) 2019 DC Slagel
 
-   Licensed under the Apache License, Version 2.0 (the "License");
+   Licensed under the Apache License, Well 2.0 (the "License");
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
 
@@ -20,25 +20,28 @@
    License-Identifier: Apache-2.0
 */
 
-#ifndef LAS_H
-#define LAS_H
 
-// System
-#include <cstring>  // strlen, strcpy, perror
-#include <fstream>  // std::ifstream
-#include <iomanip>  // setw(), left
-#include <iostream> // std:cout
-#include <sstream>  // std::stringstream
-#include <vector>
+#ifndef LAS_OTHER_H
+#define LAS_OTHER_H
 
-// Las_Util specific
-#include "las_args.h"
-#include "las_version.h"
-#include "las_utils.h"
-#include "las_well.h"
-#include "las_header.h"
-#include "las_log_param.h"
-#include "las_other.h"
+#include "las.h"
 
 
-#endif /* LAS_H */
+class LasOther
+{
+    public:
+        LasOther();
+        ~LasOther();
+        void parseLine(std::string line);
+        void printInfo();
+        void setHeader(const std::string line);
+        void printDataHeader();
+
+        std::string getHeader();
+    private:
+        // header fields
+        std::string header;
+        std::vector<std::string> other_info_vec;
+};
+
+#endif /*  LAS_OTHER_H */
