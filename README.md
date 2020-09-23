@@ -100,7 +100,11 @@ cd ..
 
 [PROJECT-ROADMAP](#name)
 ----------------
-The current work-in-progress milestone is 0.0.2:
+las-util-cpp's project road-map is managed in github milestones at:
+
+https://github.com/dcslagel/las-util-cpp/milestones
+
+1. The current work-in-progress milestone is 0.0.2:
 
 https://github.com/dcslagel/las-util-cpp/projects/1
 
@@ -108,10 +112,12 @@ https://github.com/dcslagel/las-util-cpp/projects/1
   - Add parsing for the other major metadata sections Some iterative
     improvements to the project structure and design.
 
-las-util-cpp's project road-map is managed in github milestones at:
+2. Next milestone will be 0.0.3:
 
-https://github.com/dcslagel/las-util-cpp/milestones
+https://github.com/dcslagel/las-util-cpp/milestone/5
 
+- Goals:
+  - Add REPL loop
 
 [FEATURE-REQUEST](#name)
 ----------------
