@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.0.2 - 2020-09-27
+
+Beta : Add parsing for the other major metadata sections
+
+### Added
+
+- Parse CURVE section
+- Parse PARAMETER section
+- Parse OTHER section
+- Add a very basic initial test framework
+
 ## 0.0.1 - 2020-06-15
 
 Beta : Initial release package of existing functionality

@@ -28,8 +28,7 @@ The parser currently parses and displays the following sections:
 - Well-Information
 - Curve
 - Parameter
-
-Currently tested on darwin-amd64.
+- Other
 
 The current goal of LAS-Util are:
 - Parse LAS header meta-data records(lines)
@@ -54,11 +53,13 @@ Specify which sections to display by listing the letters following '-p'
 |w       | Well Information Section  |
 |c       | Curve Section
 |p       | Log Parameter Section  |
-|e       | Drilling Definition Section  |
+|o       | Other Section  |
 |a       | Drilling Data Section  |
 
 [INSTALL-COMPILE-AND-RUN](#name)
 -------------------------
+
+Note: Currently validated with GNU's g++-9 compiler
 
 ```bash
 git clone https://github.com/dcslagel/las-util-cpp
@@ -68,6 +69,7 @@ make
 cd ..
 ./src/lasUtil -f examples/sample_2.0.las
 ```
+
 
 [EXAMPLES](#name)
 ---------
@@ -104,20 +106,14 @@ las-util-cpp's project road-map is managed in github milestones at:
 
 https://github.com/dcslagel/las-util-cpp/milestones
 
-1. The current work-in-progress milestone is 0.0.2:
-
-https://github.com/dcslagel/las-util-cpp/projects/1
-
-- Goals:
-  - Add parsing for the other major metadata sections Some iterative
-    improvements to the project structure and design.
-
-2. Next milestone will be 0.0.3:
+1. The current work-in-progress milestone is 0.0.3:
 
 https://github.com/dcslagel/las-util-cpp/milestone/5
 
 - Goals:
-  - Add REPL loop
+  - Add Add a REPL command loop
+  - Add additional tests
+
 
 [FEATURE-REQUEST](#name)
 ----------------
